@@ -11,6 +11,13 @@ public class T0034 {
         System.out.println(Arrays.toString(searchRange(nums, target)));
     }
 
+    /**
+     * 在排序数组中查找元素的第一个和最后一个位置
+     *
+     * @param nums   升序数组
+     * @param target 目标元素
+     * @return 数组，第一个元素表示起始位置，第二个元素表示结尾位置
+     */
     public static int[] searchRange(int[] nums, int target) {
         int index = binarySearch(nums, target);
         // 若不存在该元素，直接返回[-1,-1]
