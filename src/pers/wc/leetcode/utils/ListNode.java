@@ -4,9 +4,9 @@ package pers.wc.leetcode.utils;
  * 单链表
  */
 public class ListNode {
-    int val;
+    public int val;
 
-    ListNode next;
+    public ListNode next;
 
     public ListNode() {
     }
