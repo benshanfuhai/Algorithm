@@ -69,5 +69,4 @@ public class T0844 {
         }
         return resStringBuffer.toString();
     }
-
 }
