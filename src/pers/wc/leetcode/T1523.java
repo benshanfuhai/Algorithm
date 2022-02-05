@@ -2,8 +2,8 @@ package pers.wc.leetcode;
 
 public class T1523 {
     public static void main(String[] args) {
-        int low = 9;
-        int high = 17;
+        int low = 8;
+        int high = 10;
         System.out.println(countOdds(low, high));
     }
 
@@ -15,18 +15,11 @@ public class T1523 {
      * @return 返回 low 和 high 之间的奇数数目
      */
     public static int countOdds(int low, int high) {
-        int edgeCount = isOdd(low) + isOdd(high);
-        if (edgeCount != 0) {
+        // low 和 high 中存在奇数时
+        if ((low % 2 != 0) | (high % 2 != 0)) {
             return (high - low) / 2 + 1;
         } else {
             return (high - low) / 2;
         }
-    }
-
-    public static int isOdd(int num) {
-        if (num % 2 != 0) {
-            return 1;
-        }
-        return 0;
     }
 }
