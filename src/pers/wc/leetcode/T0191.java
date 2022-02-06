@@ -18,8 +18,11 @@ public class T0191 {
     public static int hammingWeight(int n) {
         int count = 0;
         while (n != 0) {
-            n = n & (n - 1);
-            count++;
+            if ((n & 1) == 1) {
+                count++;
+            }
+            // 无符号右移，忽略符号位，空位都以 0 补齐
+            n = n >>> 1;
         }
         return count;
     }
