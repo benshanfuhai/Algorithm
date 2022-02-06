@@ -16,12 +16,10 @@ public class T0191 {
      * @return 返回二进制串中 1 的个数
      */
     public static int hammingWeight(int n) {
-        String binaryString = Integer.toBinaryString(n);
         int count = 0;
-        for (int i = 0; i < binaryString.length(); i++) {
-            if (binaryString.charAt(i) == '1') {
-                count++;
-            }
+        while (n != 0) {
+            n = n & (n - 1);
+            count++;
         }
         return count;
     }
