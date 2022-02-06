@@ -16,27 +16,14 @@ public class T1281 {
      * @return 返回该整数 各个数字之积 与 各个数字之和 的差。
      */
     public static int subtractProductAndSum(int n) {
-        if (n == 0) {
-            return 0;
-        }
-        List<Integer> list = new ArrayList<>();
+        int multiNums = 1;
+        int sumNums = 0;
         while (n != 0) {
             int temp = n % 10;
-            list.add(temp);
+            multiNums *= temp;
+            sumNums += temp;
             n /= 10;
         }
-        int sumNums = 0;
-        int multiNums = 1;
-        for (int num : list) {
-            sumNums += num;
-        }
-        if (list.contains(0)) {
-            return -sumNums;
-        } else {
-            for (int num : list) {
-                multiNums *= num;
-            }
-            return multiNums - sumNums;
-        }
+        return multiNums - sumNums;
     }
 }
