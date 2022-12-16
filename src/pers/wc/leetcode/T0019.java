@@ -52,10 +52,13 @@ public class T0019 {
     public static ListNode removeNthFromEnd_2(ListNode head, int n) {
         ListNode dummy = new ListNode(0, head);
         ListNode first = head;
+        // 将第二个指针指向dummy，则可以在first遍历到链表结尾时，second正好指向要删除节点的前一个位置
         ListNode second = dummy;
+        // 先将first向前走n个位置
         for (int i = 0; i < n; i++) {
             first = first.next;
         }
+        // 当first走到结尾时，second指向待删除节点的前一个位置
         while (first != null) {
             first = first.next;
             second = second.next;
