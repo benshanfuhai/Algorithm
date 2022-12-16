@@ -11,7 +11,7 @@ public class T0019 {
         ListNode head = new ListNode(1);
         head.next = new ListNode(2);
         int n = 1;
-        System.out.println(XToString.ListNodeToString(removeNthFromEnd(head, n)));
+        System.out.println(XToString.ListNodeToString(removeNthFromEnd_2(head, n)));
     }
 
     /**
@@ -21,7 +21,7 @@ public class T0019 {
      * @param n    删除的位置
      * @return 链表的头结点
      */
-    public static ListNode removeNthFromEnd(ListNode head, int n) {
+    public static ListNode removeNthFromEnd_1(ListNode head, int n) {
         ListNode dummy = new ListNode(0, head);
         // 因为删除的是倒数第N个，所以使用栈来实现
         Deque<ListNode> stack = new ArrayDeque<>();
@@ -39,6 +39,28 @@ public class T0019 {
         // 将栈顶元素与第N个元素之后的元素进行连接
         // 虽然链表结点被拆开放入栈中，但是每个节点的结构依然保存在其中，即next指针
         prev.next = prev.next.next;
+        return dummy.next;
+    }
+
+    /**
+     * 双指针法
+     *
+     * @param head 头结点
+     * @param n    要删除元素的位置
+     * @return 头结点
+     */
+    public static ListNode removeNthFromEnd_2(ListNode head, int n) {
+        ListNode dummy = new ListNode(0, head);
+        ListNode first = head;
+        ListNode second = dummy;
+        for (int i = 0; i < n; i++) {
+            first = first.next;
+        }
+        while (first != null) {
+            first = first.next;
+            second = second.next;
+        }
+        second.next = second.next.next;
         return dummy.next;
     }
 }
