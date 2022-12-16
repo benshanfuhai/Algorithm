@@ -11,6 +11,9 @@ public class XToString {
      * @return 转化为字符串的结果
      */
     public static String ListNodeToString(ListNode head) {
+        if (head == null) {
+            return "[]";
+        }
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("[");
         while (head != null) {
